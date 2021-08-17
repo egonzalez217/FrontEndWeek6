@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Week 6 Front End Project</title>
+    <link rel="stylesheet" href="./resources/css/index.css" />
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -16,11 +17,28 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <!-- Custom style.css -->
-    <link rel=“stylesheet” type=“text/css” href=“style.css” />
   </head>
   <body>
-    <div>what up</div>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="new-garage-name">Garage Name</label>
+              <input type="text" class="form-control" id="new-garage-name" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <button id="new-garage" class="btn btn-success form-control">
+            Create New Garage
+          </button>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div id="garages"></div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -41,5 +59,6 @@
 
     <!-- Optional JavaScript -->
     <script src="./js/main.js"></script>
+    <link rel="“stylesheet”" href="./resources/css/index.css" type="text/css" />
   </body>
 </html>
