@@ -68,19 +68,18 @@ function drawDOM() {
 //creates a new row for a car with the buttons necessary to take action on the row for deleting or editing
 function createCarRow(garage, table, car) {
   let row = table.insertRow(2);
-  console.log(car.make);
-  console.log(car.model);
   row.insertCell(0).innerHTML = car.make;
   row.insertCell(1).innerHTML = car.model;
   let actions = row.insertCell(2);
   actions.appendChild(createDeleteRowButton(garage, car));
+  actions.appendChild(createEditCarButton(garage, car));
 }
 
 // create a delete button inside of a row in a table that then deletes the car from the garage by grabbing its index from within the array and using that position to remove one element (the car)
 function createDeleteRowButton(garage, car) {
   let btn = document.createElement("button");
   btn.className = "btn btn-danger";
-  btn.innerHTML = "Delete";
+  btn.innerHTML = "Remove Car";
   btn.onclick = () => {
     let index = garage.cars.indexOf(car);
     garage.cars.splice(index, 1);
@@ -89,11 +88,27 @@ function createDeleteRowButton(garage, car) {
   return btn;
 }
 
+function createEditCarButton(garage, car) {
+  let btn = document.createElement("button");
+  btn.className = "btn btn-primary btn-custom";
+  btn.innerHTML = "Change Car";
+  btn.onclick = () => {
+    let index = garage.cars.indexOf(car);
+    garage.cars[index].make = getValue("make-input-${garage.id}");
+    garage.cars[index].model = getValue("model-input-${garage.id}");
+    console.log(garage.cars[index].make);
+    console.log(garage.cars[index].model);
+
+    drawDOM();
+  };
+  return btn;
+}
+
 //create the button to delete an entire garage from within the array of given garages
 function createDeleteGarageButton(garage) {
   let btn = document.createElement("button");
-  btn.className = "btn btn-danger btn-margin";
-  btn.innerHTML = "Delete Garage";
+  btn.className = "btn btn-danger btn-custom";
+  btn.innerHTML = "Remove Garage";
   btn.onclick = () => {
     let index = garages.indexOf(garage);
     garages.splice(index, 1);
@@ -105,7 +120,7 @@ function createDeleteGarageButton(garage) {
 function createNewCarButton(garage) {
   let btn = document.createElement("button");
   btn.className = "btn btn-success";
-  btn.innerHTML = "Create New Car";
+  btn.innerHTML = "Add New Car";
   btn.onclick = () => {
     garage.cars.push(
       new Car(
@@ -118,15 +133,6 @@ function createNewCarButton(garage) {
   return btn;
 }
 
-function editCarButton(garage, car) {
-  let btn = document.createElement("button");
-  btn.className = "btn btn-primary";
-  btn.innerHTML = "Edit Car";
-  btn.onClick = () => {
-    let index = garage.cars.indexOf(car);
-    garage;
-  };
-}
 function createGarageTable(garage) {
   let table = document.createElement("table");
   table.setAttribute("class", "table table-dark table-striped");
@@ -167,7 +173,7 @@ function createGarageTable(garage) {
   formRow.appendChild(modelTh);
   formRow.appendChild(createTh);
 
-  //console.log(garage.id);
+  console.log(garage.id);
   return table;
 }
 

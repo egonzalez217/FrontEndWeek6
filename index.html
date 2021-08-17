@@ -18,27 +18,40 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm">
-            <div class="form-group">
-              <label for="new-garage-name">Garage Name</label>
-              <input type="text" class="form-control" id="new-garage-name" />
+  <body class="body">
+    <div class="container">
+      <div class="align-text-top">
+        <br /><br />
+        Create a new Garage by using the Garage Name form and clicking the
+        Create New Garage Button.
+        <br /><br />From there the Garage can be removed, or cars cam being to
+        be added to the Garage using the Make and Model forms, and then the Add
+        New Car Button. <br /><br />A new row will be displayed to show the new
+        car added to the garage, and then the car can be removed from the garage
+        by clicking the Remove Car Button, or the car can be changed by using
+        the Make and Model forms at the top of the table again, this time
+        clicking the Change Car Button.
+      </div>
+      <br />
+      <div class="card">
+        <div class="card-body black">
+          <div class="row">
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="new-garage-name">Garage Name</label>
+                <input type="text" class="form-control" id="new-garage-name" />
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <button id="new-garage" class="btn btn-success form-control">
-            Create New Garage
-          </button>
+          <div>
+            <button id="new-garage" class="btn btn-success form-control">
+              Create New Garage
+            </button>
+          </div>
         </div>
       </div>
+      <div id="garages"></div>
     </div>
-    <br />
-
-    <div id="garages"></div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
