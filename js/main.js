@@ -1,5 +1,3 @@
-const { data } = require("jquery");
-
 //class for a car and constructor to create a new car with properties of a make and a model
 class Car {
   constructor(make, model) {
