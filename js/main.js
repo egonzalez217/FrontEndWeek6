@@ -1,3 +1,5 @@
+const { data } = require("jquery");
+
 //class for a car and constructor to create a new car with properties of a make and a model
 class Car {
   constructor(make, model) {
@@ -94,8 +96,8 @@ function createEditCarButton(garage, car) {
   btn.innerHTML = "Change Car";
   btn.onclick = () => {
     let index = garage.cars.indexOf(car);
-    garage.cars[index].make = getValue("make-input-${garage.id}");
-    garage.cars[index].model = getValue("model-input-${garage.id}");
+    garage.cars[index].make = getValue(`make-input-${garage.id}`);
+    garage.cars[index].model = getValue(`model-input-${garage.id}`);
     console.log(garage.cars[index].make);
     console.log(garage.cars[index].model);
 
@@ -124,8 +126,8 @@ function createNewCarButton(garage) {
   btn.onclick = () => {
     garage.cars.push(
       new Car(
-        getValue("make-input-${garage.id}"),
-        getValue("model-input-${garage.id}")
+        getValue(`make-input-${garage.id}`),
+        getValue(`model-input-${garage.id}`)
       )
     );
     drawDOM();
@@ -154,12 +156,12 @@ function createGarageTable(garage) {
   let createTh = document.createElement("th");
 
   let makeInput = document.createElement("input");
-  makeInput.setAttribute("id", "make-input-${garage.id}");
+  makeInput.setAttribute("id", `make-input-${garage.id}`);
   makeInput.setAttribute("type", "text");
   makeInput.setAttribute("class", "form-control");
 
   let modelInput = document.createElement("input");
-  modelInput.setAttribute("id", "model-input-${garage.id}");
+  modelInput.setAttribute("id", `model-input-${garage.id}`);
   modelInput.setAttribute("type", "text");
   modelInput.setAttribute("class", "form-control");
 

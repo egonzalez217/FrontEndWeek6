@@ -1,5 +1,4 @@
 /* .body {
-  background-color: rgba(0, 0, 0, 0.445);
 } */
 
 .btn-custom {
@@ -31,4 +30,16 @@
   display: block;
   position: absolute;
   top: 5%;
+}
+
+.z-index {
+  z-index: -1;
+  height: auto;
+  width: 100%;
+  display: inline-block;
+  position: absolute;
+}
+
+.white-text {
+  color: white;
 }
